@@ -9,7 +9,9 @@ nonselftalk <- function(mat_type, lrp) {
 
     index <- which(Matrix::rowSums(mat_type != 0) == 0)
 
-    mat_type[index, ] <- add_noise(mat_type[index, ])
+    if (length(index) > 0) {
+        mat_type[index, ] <- add_noise(mat_type[index, ])
+    }
     mat_disc <- discretize_sparse(
         Matrix::t(mat_type), "equalwidth", max(2, ncol(mat_type)^(1/2)))
 

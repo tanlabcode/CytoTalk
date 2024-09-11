@@ -57,16 +57,16 @@ pathways and the interactions among them.
 
 ### Prerequisites
 
-Please [install
+(1) [Install
 Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 at the very beginning for all of Windows, Linux and macOS users.
 
-For Windows users, please additionally install [Microsoft Visual C++ Build
+!!!For Windows users, please additionally install [Microsoft Visual C++ Build
 Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and
 [Rtools
 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html).
 
-CytoTalk requires a Python module to operate correctly. To install the
+(2) CytoTalk requires a Python module to operate correctly. To install the
 [`pcst_fast` module](https://github.com/fraenkel-lab/pcst_fast), please
 run the commands below in the *R* (version 4.1.3) console.
 

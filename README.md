@@ -280,7 +280,7 @@ for node prize, edge cost, and potential are calculated separately.
 
 ## Update Log
 
-2024-09-11: We have updated README to make the installation of the CytoTalk package more clear to users.
+2024-09-11: We have updated README to make the installation of the CytoTalk package easier for users.
 
 2022-05-05: We have updated the installation and usage of the
 [`pcst_fast`](https://github.com/fraenkel-lab/pcst_fast) module for

@@ -66,8 +66,8 @@ Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and
 [Rtools
 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html).
 
-(2) CytoTalk requires a Python module to operate correctly. To install the
-[`pcst_fast` module](https://github.com/fraenkel-lab/pcst_fast), please
+(2) Install a python module 
+[`pcst_fast`](https://github.com/fraenkel-lab/pcst_fast), please
 run the commands below in the *R* (version 4.1.3) console.
 
 ``` r

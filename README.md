@@ -79,7 +79,7 @@ conda_install(envname = "r_reticulate_CytoTalk", "numpy")
 conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
 ```
 
-(3) Install the CytoTalk package.
+(3) Install the CytoTalk package in the *R* (>= v4.1.3) console.
 
 ``` r
 if (!requireNamespace("devtools", quietly = TRUE)) {

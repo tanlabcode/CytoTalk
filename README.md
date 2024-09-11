@@ -19,9 +19,8 @@
     -   [Overview](#overview)
         -   [Background](#background)
     -   [Getting Started](#getting-started)
-        -   [Prerequisites](#prerequisites)
         -   [Installation](#installation)
-        -   [Preparation](#preparation)
+        -   [Input Preparation](#input-preparation)
         -   [Running CytoTalk](#running-cytotalk)
     -   [Update Log](#update-log)
     -   [Citing CytoTalk](#citing-cytotalk)
@@ -60,7 +59,7 @@ pathways and the interactions among them.
 (1) Install [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 at the very beginning for all of Windows, Linux and macOS users.
 
-!!!For Windows users, please additionally install [Microsoft Visual C++ Build
+!!! For Windows users, please additionally install [Microsoft Visual C++ Build
 Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and
 [Rtools
 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html).
@@ -79,7 +78,7 @@ conda_install(envname = "r_reticulate_CytoTalk", "numpy")
 conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
 ```
 
-(3) Install the CytoTalk package in the *R* (>= v4.1.3) console.
+(3) Install the CytoTalk package in the *R* console.
 
 ``` r
 if (!requireNamespace("devtools", quietly = TRUE)) {
@@ -88,7 +87,7 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
 devtools::install_github("tanlabcode/CytoTalk", ref = "feature_RcallPy")
 ```
 
-### Preparation
+### Input Preparation
 
 Let’s assume we have a folder called “scRNAseq-data”, filled with
 single-cell RNA sequencing datasets. Here’s an example directory
@@ -183,7 +182,7 @@ Without further ado, let’s run CytoTalk!
 
 ``` r
 # read in data folder
-dir_in <- "~/Tan-Lab/scRNAseq-data"
+dir_in <- "./scRNAseqInput_Example"
 lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
 
 # set required parameters
@@ -191,7 +190,7 @@ type_a <- "Fibroblasts"
 type_b <- "LuminalEpithelialCells"
 
 # run CytoTalk process
-results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b)
+results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b, pcg = CytoTalk::pcg_mouse, lrp = CytoTalk::lrp_mouse, dir_out = "./Output")
 ```
 
 ``` console
@@ -206,7 +205,7 @@ results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b)
 ```
 
 All we need for a default run is the named list and selected cell types
-(“Macrophages” and “LuminalEpithelialCells”). The most important
+(“Fibroblasts” and “LuminalEpithelialCells”). The most important
 optional parameters to look at are `cutoff_a`, `cutoff_b`, and
 `beta_max`; details on these can be found in the help page for the
 `run_cytotalk` function (see `?run_cytotalk`). As the process runs, we
@@ -281,8 +280,10 @@ for node prize, edge cost, and potential are calculated separately.
 
 ## Update Log
 
+2024-09-11: We have updated README to make the installation of the CytoTalk package more clear for users.
+
 2022-05-05: We have updated the installation and usage of the
-[`pcst_fast` module](https://github.com/fraenkel-lab/pcst_fast) for
+[`pcst_fast`](https://github.com/fraenkel-lab/pcst_fast) module for
 running the CytoTalk package completely in the *R* console as a new
 under-development branch “feature_RcallPy”, which has been tested on
 both Windows and macOS.

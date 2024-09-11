@@ -113,7 +113,7 @@ Notice all of these files have the prefix “scRNAseq\_” and the extension
 replicate it with your filenames. Let’s try reading in the folder:
 
 ``` r
-dir_in <- "~/Tan-Lab/scRNAseq-data"
+dir_in <- "./scRNAseq-data"
 lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
 table(lst_scrna$cell_types)
 ```
@@ -142,8 +142,8 @@ There is no specific pattern required for this type of input, as both
 filepaths are required for the function:
 
 ``` r
-fpath_mat <- "~/Tan-Lab/scRNAseq-data-cpdb/sample_counts.txt"
-fpath_meta <- "~/Tan-Lab/scRNAseq-data-cpdb/sample_meta.txt"
+fpath_mat <- "./scRNAseq-data-cpdb/sample_counts.txt"
+fpath_meta <- "./scRNAseq-data-cpdb/sample_meta.txt"
 lst_scrna <- CytoTalk::read_matrix_with_meta(fpath_mat, fpath_meta)
 table(lst_scrna$cell_types)
 ```
@@ -182,7 +182,7 @@ Without further ado, let’s run CytoTalk!
 
 ``` r
 # read in data folder
-dir_in <- "./scRNAseqInput_Example"
+dir_in <- "./scRNAseq-data"
 lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
 
 # set required parameters
@@ -280,7 +280,7 @@ for node prize, edge cost, and potential are calculated separately.
 
 ## Update Log
 
-2024-09-11: We have updated README to make the installation of the CytoTalk package more clear for users.
+2024-09-11: We have updated README to make the installation of the CytoTalk package more clear to users.
 
 2022-05-05: We have updated the installation and usage of the
 [`pcst_fast`](https://github.com/fraenkel-lab/pcst_fast) module for

@@ -57,8 +57,7 @@ pathways and the interactions among them.
 
 ### Prerequisites
 
-(1) [Install
-Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+(1) Install [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 at the very beginning for all of Windows, Linux and macOS users.
 
 !!!For Windows users, please additionally install [Microsoft Visual C++ Build
@@ -67,10 +66,12 @@ Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and
 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html).
 
 (2) Install a python module 
-[`pcst_fast`](https://github.com/fraenkel-lab/pcst_fast), please
-run the commands below in the *R* (version 4.1.3) console.
+[`pcst_fast`](https://github.com/fraenkel-lab/pcst_fast) by running the commands below in the *R* (>= v4.1.3) console.
 
 ``` r
+if (!requireNamespace("reticulate", quietly = TRUE)) {
+  install.packages("reticulate")
+}
 library(reticulate)  # To install and call Python modules from R.
 conda_create(envname = "r_reticulate_CytoTalk", python_version = "3.8")  # Create a new Conda environment to facilitate the Python module installation.
 conda_install(envname = "r_reticulate_CytoTalk", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.

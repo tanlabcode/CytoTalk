@@ -55,7 +55,7 @@ pathways and the interactions among them.
 
 ## Getting Started
 
-### Prerequisites
+### Installation
 
 (1) Install [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 at the very beginning for all of Windows, Linux and macOS users.
@@ -79,18 +79,12 @@ conda_install(envname = "r_reticulate_CytoTalk", "numpy")
 conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
 ```
 
-CytoTalk outputs a SIF file for use in Cytoscape. Please [install
-Cytoscape](https://cytoscape.org/download.html) to view the whole output
-network. Additionally, you’ll have to install Graphviz and add the `dot`
-executable to your PATH. See the [Graphviz downloads
-page](https://graphviz.org/download/) for more information.
-
-### Installation
-
-If you have `devtools` installed, you can use the `install_github`
-function directly on this repository (under development):
+(3) Install the CytoTalk package.
 
 ``` r
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
 devtools::install_github("tanlabcode/CytoTalk", ref = "feature_RcallPy")
 ```
 

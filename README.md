@@ -59,21 +59,20 @@ pathways and the interactions among them.
 
 Please [install
 Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
-at the very beginning for all of Windows, Linux and macOS users and make
-sure to have [Microsoft Visual C++ Build
+at the very beginning for all of Windows, Linux and macOS users.
+
+For Windows users, please additionally install [Microsoft Visual C++ Build
 Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and
 [Rtools
-4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
-correctly installed for Windows users only.
+4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html).
 
 CytoTalk requires a Python module to operate correctly. To install the
 [`pcst_fast` module](https://github.com/fraenkel-lab/pcst_fast), please
-run the commands below in the *R* (version 4.1.3) console if you have
-`reticulate` installed.
+run the commands below in the *R* (version 4.1.3) console.
 
 ``` r
 library(reticulate)  # To install and call Python modules from R.
-conda_create(envname = "r_reticulate_CytoTalk", python_version = "3.7.3")  # Create a new Conda environment to facilitate the Python module installation.
+conda_create(envname = "r_reticulate_CytoTalk", python_version = "3.8")  # Create a new Conda environment to facilitate the Python module installation.
 conda_install(envname = "r_reticulate_CytoTalk", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.
 conda_install(envname = "r_reticulate_CytoTalk", "numpy")
 conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.

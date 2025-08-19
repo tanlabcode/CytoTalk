@@ -72,9 +72,9 @@ if (!requireNamespace("reticulate", quietly = TRUE)) {
   install.packages("reticulate")
 }
 library(reticulate)  # To install and call Python modules from R.
-conda_create(envname = "r_reticulate_CytoTalk", python_version = "3.8")  # Create a new Conda environment to facilitate the Python module installation.
+conda_create(envname = "r_reticulate_CytoTalk", "python=3.10")  # Create a new Conda environment to facilitate the Python module installation. python=3.10 is compatible with numpy=1.26
 conda_install(envname = "r_reticulate_CytoTalk", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.
-conda_install(envname = "r_reticulate_CytoTalk", "numpy")
+conda_install(envname = "r_reticulate_CytoTalk", "numpy=1.26")  # Avoid using numpy>=2.0, which is not compatible with the python module "pcst_fast".
 conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
 ```
 
@@ -84,6 +84,7 @@ conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenke
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
+options(timeout = 600)  # Giving more time for downloading.
 devtools::install_github("tanlabcode/CytoTalk", ref = "feature_RcallPy")
 ```
 

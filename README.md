@@ -72,10 +72,10 @@ if (!requireNamespace("reticulate", quietly = TRUE)) {
   install.packages("reticulate")
 }
 library(reticulate)  # To install and call Python modules from R.
-conda_create(envname = "r_reticulate_CytoTalk", "python=3.10")  # Create a new Conda environment to facilitate the Python module installation. python=3.10 is compatible with numpy=1.26
-conda_install(envname = "r_reticulate_CytoTalk", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.
-conda_install(envname = "r_reticulate_CytoTalk", "numpy=1.26")  # Avoid using numpy>=2.0, which is not compatible with the python module "pcst_fast".
-conda_install(envname = "r_reticulate_CytoTalk", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
+conda_create(envname = "PCSF", "python=3.10")  # Create a new Conda environment to facilitate the Python module installation. python=3.10 is compatible with numpy=1.26
+conda_install(envname = "PCSF", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.
+conda_install(envname = "PCSF", "numpy=1.26")  # Avoid using numpy>=2.0, which is not compatible with the python module "pcst_fast".
+conda_install(envname = "PCSF", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
 ```
 
 (3) Install the CytoTalk package in the *R* console.
@@ -191,6 +191,8 @@ type_a <- "Fibroblasts"
 type_b <- "LuminalEpithelialCells"
 
 # run CytoTalk process
+library(reticulate)
+use_condaenv("PCSF", required = TRUE)
 results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b, pcg = CytoTalk::pcg_mouse, lrp = CytoTalk::lrp_mouse, dir_out = "./Output")
 ```
 

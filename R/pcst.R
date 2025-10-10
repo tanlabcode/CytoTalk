@@ -26,7 +26,7 @@ run_pcst <- function(lst_net, beta_max, omega_min, omega_max) {
     })
 
     # reticulate import (could fail)
-    reticulate::use_condaenv(condaenv = "r_reticulate_CytoTalk", required = TRUE)  #use a specific conda env.
+    reticulate::use_condaenv(condaenv = "PCSF", required = TRUE)  #use a specific conda env.
     pcst_fast <- reticulate::import("pcst_fast")
 
     # for each beta
